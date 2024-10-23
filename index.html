@@ -11,8 +11,7 @@
             flex-direction: column;
             align-items: center;
             background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
+            position: relative;
         }
 
         h1 {
@@ -22,17 +21,16 @@
 
         #calendar {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Default: Three columns */
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin: 20px 10px; /* Reduced margin for smaller screens */
+            margin: 20px 0;
         }
 
         .month {
             border: 1px solid #ccc;
             border-radius: 10px;
             padding: 20px;
-            width: 100%; /* Use full width in smaller screens */
-            max-width: 300px; /* Limit max width for larger screens */
+            width: 300px;
             text-align: center;
             background-color: #fff;
             position: relative;
@@ -98,32 +96,6 @@
             border-style: solid;
             border-color: transparent transparent #fff transparent;
         }
-
-        /* Media Queries for Responsiveness */
-        @media (max-width: 900px) {
-            #calendar {
-                grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
-            }
-        }
-
-        @media (max-width: 600px) {
-            #calendar {
-                grid-template-columns: 1fr; /* One column on smaller screens */
-            }
-
-            .month {
-                padding: 15px; /* Reduced padding on smaller screens */
-            }
-
-            .days div {
-                padding: 6px;
-                font-size: 9px; /* Smaller font size for mobile */
-            }
-
-            .popup {
-                font-size: 11px; /* Slightly smaller font in pop-ups */
-            }
-        }
     </style>
 </head>
 <body>
@@ -137,45 +109,46 @@
 <script>
     const events = {
         "January": {
-            6: { title: "Vegas Meetup", location: "Las Vegas" },
-            7: { title: "Vegas Meetup", location: "Las Vegas" },
-            8: { title: "Vegas Meetup", location: "Las Vegas" },
-            8: { title: "Vegas Meetup", location: "Las Vegas" },
+            1: { title: "New Year's Day", location: "Brazil", time: "All day" },
+            15: { title: "Municipal Holiday", location: "City A", time: "All day" },
+            25: { title: "Meeting", location: "Office", time: "14:00" },
+        },
+        "February": {
+            14: { title: "Valentine's Day", location: "USA", time: "All day" },
+        },
+        "March": {
+            8: { title: "International Women's Day", location: "Global", time: "All day" },
+            21: { title: "Start of Spring", location: "Global", time: "All day" },
         },
         "April": {
-            7: { title: "Vegas Meetup", location: "Las Vegas" },
-            8: { title: "Vegas Meetup", location: "Las Vegas" },
-            9: { title: "Vegas Meetup", location: "Las Vegas" },
-            10: { title: "Vegas Meetup", location: "Las Vegas"},
+            22: { title: "Earth Day", location: "Global", time: "All day" },
+        },
+        "May": {
+            1: { title: "Labor Day", location: "Brazil", time: "All day" },
+            25: { title: "Local Holiday", location: "City B", time: "All day" },
         },
         "June": {
-            14: { title: "LA Meetup", location: "Los Angeles" },
-            15: { title: "LA Meetup", location: "Los Angeles" },
-            16: { title: "LA Meetup", location: "Los Angeles" },
-            17: { title: "LA Meetup", location: "Los Angeles" },
-            23: { title: "On Location Trip for Hustlers/Earnings" },
-            24: { title: "On Location Trip for Hustlers/Earnings" },
-            25: { title: "On Location Trip for Hustlers/Earnings" },
-            26: { title: "On Location Trip for Hustlers/Earnings" },
+            12: { title: "Valentine's Day", location: "Brazil", time: "All day" },
+        },
+        "July": {
+            4: { title: "Independence Day", location: "USA", time: "All day" },
+        },
+        "August": {
+            15: { title: "National Holiday", location: "Brazil", time: "All day" },
         },
         "September": {
-            29: { title: "Vegas Meetup", location: "Las Vegas" },
-            30: { title: "Vegas Meetup", location: "Las Vegas" },
+            7: { title: "Independence Day of Brazil", location: "Brazil", time: "All day" },
         },
         "October": {
-            1: { title: "Vegas Meetup", location: "Las Vegas" },
-            2: { title: "Vegas Meetup", location: "Las Vegas" },
-            13: { title: "Vegas VIP/Netty", location: "Las Vegas" },
-            14: { title: "Vegas VIP/Netty", location: "Las Vegas" },
-            15: { title: "Vegas VIP/Netty", location: "Las Vegas" },
-            16: { title: "Vegas VIP/Netty", location: "Las Vegas" },
-            17: { title: "Vegas VIP/Netty", location: "Las Vegas" },
-            18: { title: "Vegas VIP/Netty", location: "Las Vegas" },
-            19: { title: "Vegas VIP/Netty", location: "Las Vegas" },
-            20: { title: "Vegas VIP/Netty", location: "Las Vegas" },
+            12: { title: "Children's Day", location: "Brazil", time: "All day" },
+            31: { title: "Halloween", location: "USA", time: "All day" },
+        },
+        "November": {
+            2: { title: "Day of the Dead", location: "Brazil", time: "All day" },
+            15: { title: "Proclamation of the Republic", location: "Brazil", time: "All day" },
         },
         "December": {
-            9: { title: "Christmas", location: "Elly and Rick's" },
+            25: { title: "Christmas", location: "Global", time: "All day" },
         }
     };
 
